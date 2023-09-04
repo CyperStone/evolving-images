@@ -1,6 +1,7 @@
 import os
 import numpy as np
 from PIL import Image
+from datetime import datetime
 from argparse import ArgumentParser, SUPPRESS
 from GA import ImageEvolutionTask, GeneticAlgorithm
 from utils import resize_image, save_evolution_progress_as_gif
@@ -55,13 +56,14 @@ if __name__ == '__main__':
         img_history_step=args.img_history_step
     )
 
-    output_filename = f'{args.image_filename.split(".")[0]}_{OUTPUT_FILENAME_SUFFIX}.jpg'
+    current_time = datetime.today().strftime('%Y-%m-%d_%H-%M')
+    output_filename = f'{args.image_filename.split(".")[0]}_{OUTPUT_FILENAME_SUFFIX}_{current_time}.jpg'
     Image.fromarray(best_img).save(os.path.join(OUTPUT_DIR, output_filename))
 
     if args.animation:
         input_img_array_resized = resize_image(input_img_array, width=ANIMATION_IMAGE_WIDTH)
 
-        animation_filename = f'{args.image_filename.split(".")[0]}_{ANIMATION_FILENAME_SUFFIX}.gif'
+        animation_filename = f'{args.image_filename.split(".")[0]}_{ANIMATION_FILENAME_SUFFIX}_{current_time}.gif'
         save_evolution_progress_as_gif(
             img_history=current_best_img_history,
             original_img=input_img_array_resized,
