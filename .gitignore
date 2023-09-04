@@ -6,4 +6,6 @@ outputs/*
 
 # Examples
 !inputs/pacman.jpg
-!outputs/
+!outputs/banner_evolved.jpg
+!outputs/pacman_evolution_progress.gif
+!outputs/pacman_evolution_progress_field_penalty.gif
