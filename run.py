@@ -32,9 +32,9 @@ if __name__ == '__main__':
     )
     required.add_argument('-i', '--image_filename', required=True, type=str,
                           help=f'input image filename (must be placed in {INPUT_DIR}) directory')
-    optional.add_argument('--n_iter', default=None, type=float,
+    optional.add_argument('--n_iter', default=None, type=int,
                           help='number of algorithm iterations (generations)')
-    optional.add_argument('--n_seconds', default=None, type=float,
+    optional.add_argument('--n_seconds', default=None, type=int,
                           help='duration of algorithm execution (in seconds)')
     optional.add_argument('--no_animation', action='store_false', dest='animation',
                           help='do not save an evolution progress as a GIF animation')
