@@ -302,6 +302,18 @@ class GeneticAlgorithm:
         if n_seconds is None:
             n_seconds = np.inf
 
+        fixed_img_history_checkpoints = []
+        if img_history_step is not None:
+            if 1 < img_history_step <= 2:
+                fixed_img_history_checkpoints = [i for i in range(1, 21)]
+
+            elif 2 < img_history_step <= 5:
+                fixed_img_history_checkpoints = [i for i in range(1, 21)] + [i for i in range(22, 52, 2)]
+
+            elif img_history_step > 5:
+                fixed_img_history_checkpoints = [i for i in range(1, 21)] + [i for i in range(22, 52, 2)] + \
+                                                [i for i in range(55, 105, 5)]
+
         best_fitness_history = []
         current_best_fitness_history = []
         mean_fitness_history = []
@@ -328,7 +340,7 @@ class GeneticAlgorithm:
                 best_img = current_best_img
                 best_fitness = current_best_fitness
 
-            if (img_history_step is not None) and (i == 1 or i % img_history_step == 0):
+            if (img_history_step is not None) and (i in fixed_img_history_checkpoints or i % img_history_step == 0):
                 best_img_history.append((i, best_img))
                 current_best_img_history.append((i, current_best_img))
 
