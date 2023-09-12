@@ -45,7 +45,7 @@ python run.py [ARGUMENTS]
 With an option to set the following arguments:
 ```
 required arguments:
-  -i, --image_filename IMAGE_FILENAME      input image filename (must be placed in ./inputs) directory
+  -i, --image_filename IMAGE_FILENAME      input image filename (must be placed in ./inputs directory)
 optional arguments:
   --n_iter N_ITER                          number of algorithm iterations (generations)
   --n_seconds N_SECONDS                    duration of algorithm execution (in seconds)
